@@ -17,7 +17,7 @@ export default class coffeeApp extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcom to the Coffee App!
+          Welcome to the Coffee App!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
