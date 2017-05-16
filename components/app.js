@@ -1,5 +1,11 @@
+/* Package Imports */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet,} from 'react-native';
+
+
+/* Components */
+import Button from '../components/Button/Button';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -9,11 +15,12 @@ export default class App extends Component {
     }
   };
 
+  /* YELP API Fetch */
   fetchData = (props) => {
     alert("Fetching comes from here");
   };
 
-  /* Grab Current Position */
+  /* Grabs Current Position */
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -24,23 +31,17 @@ export default class App extends Component {
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
     )
   };
-
   render() {
     return (
       <View style={ style.container }>
-        <TouchableOpacity
-         style={ style.touch }
-         onPress={ this.fetchData }>
-
-         <Text style={ style.text }>Get Coffee</Text>
-        </TouchableOpacity>
+        <Button
+         fetchData={ this.fetchData }/>
       </View>
     )
   }
 };
 
-
-
+/* Style */
 const style = StyleSheet.create({
   container: {
     flex: 1,
@@ -48,15 +49,4 @@ const style = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#EFD9CE",
   },
-  touch: {
-    backgroundColor: "#F7A072",
-    borderRadius: 10,
-    padding: 15,
-  },
-  text: {
-    color: "#333",
-    fontFamily: "Avenir Next",
-    fontWeight: "700",
-    letterSpacing: 1,
-  }
 });
