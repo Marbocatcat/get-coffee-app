@@ -1,6 +1,6 @@
 /* Package Imports */
 import React, { Component } from 'react';
-import { View, StyleSheet,} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 
 /* Components */
@@ -12,13 +12,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       position: 'unknown',
-    }
-  };
+    };
+  }
 
-  /* YELP API Fetch */
-  fetchData = (props) => {
-    alert("Fetching comes from here");
-  };
 
   /* Grabs Current Position */
   componentDidMount() {
@@ -28,25 +24,31 @@ export default class App extends Component {
         this.setState({ position });
       },
       (error) => alert(error),
-      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     )
+  }
+
+  /* YELP API Fetch */
+  fetchData = () => {
+    alert('Fetching comes from here');
   };
   render() {
     return (
-      <View style={ style.container }>
+      <View style={style.container}>
         <Button
-         fetchData={ this.fetchData }/>
+         fetchData={this.fetchData}
+        />
       </View>
-    )
+    );
   }
-};
+}
 
 /* Style */
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#EFD9CE",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#EFD9CE',
   },
 });

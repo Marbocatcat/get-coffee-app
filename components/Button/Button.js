@@ -1,18 +1,19 @@
 /* Package Imports */
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 
-const Button = (props) => {
+const Button = ({ fetchData }) => {
   return (
     <TouchableOpacity
-     style={ style.button }
-     onPress={ props.fetchData }>
+     style={style.button}
+     onPress={fetchData}
+    >
 
-     <Text style={ style.text }>Get Coffee</Text>
+     <Text style={style.text}>Get Coffee</Text>
     </TouchableOpacity>
-  )
+  );
 };
 
 /* PropTypes stuff */
@@ -21,18 +22,17 @@ Button.propTypes = {
 };
 
 
-
 /* Styling */
 const style = StyleSheet.create({
   button: {
-      backgroundColor: "#F7A072",
+      backgroundColor: '#F7A072',
       borderRadius: 10,
       padding: 15,
     },
     text: {
-      color: "#333",
-      fontFamily: "Avenir Next",
-      fontWeight: "700",
+      color: '#333',
+      fontFamily: 'Avenir Next',
+      fontWeight: '700',
       letterSpacing: 1,
     }
 });
